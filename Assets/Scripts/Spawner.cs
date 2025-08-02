@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCrumbs();
+        InvokeRepeating("SpawnCrumbs", 0.0f, Random.Range(1.0f, 5.0f));
+        //SpawnCrumbs();
     }
 
     void Awake()
@@ -21,7 +22,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnCrumbs()
     {
-        for(int i = 0; i<3; i++)
+        for(int i = 0; i<1; i++)
         {
             Instantiate(GetRandomObject(), GetSpawnPosition(), Quaternion.identity);
         }
