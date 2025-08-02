@@ -6,6 +6,8 @@ public class FallingObjectsScript : MonoBehaviour
 {
     private int targetY = -20;
     Vector3 target;
+    bool moving = true;
+    public static int crumbsCount = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,20 +28,27 @@ public class FallingObjectsScript : MonoBehaviour
 
     void FallDown()
     {
-        float step = 3f*Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
+        if(moving)
+        {
+            float step = 3f*Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Basket")
+        if(other.gameObject.tag == "DeadZone")
         {
-
-        }
-        else if(other.gameObject.tag == "DeadZone")
-        {
+            Debug.Log("Missed");
+            moving = false;
             Destroy(gameObject);
             Debug.Log("Missed");
+        }
+        if(other.gameObject.tag == "Basket")
+        {
+            crumbsCount++;
+            Debug.Log("Crumbs: " + crumbsCount);
+            Destroy(gameObject);
         }
     }
 }
