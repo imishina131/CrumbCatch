@@ -13,6 +13,19 @@ public class BasketScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
+    }
+
+    void Move()
+    {
+        if(Input.GetKey(KeyCode.A))
+        {
+            this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
+        }
+
+        if(Input.GetKey(KeyCode.D))
+        {
+            this.transform.Translate(Vector3.right * 4.0f *Time.deltaTime);
+        }
     }
 }
