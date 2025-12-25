@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeadZone
   - Basket
+  - GoodFood
+  - BadFood
   layers:
   - Default
   - TransparentFX

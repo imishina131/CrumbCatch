@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
 
     Vector3 GetSpawnPosition()
     {
-        return center + new Vector3(Random.Range(-size.x/2, size.x/2), Random.Range(-size.y/2, size.y/2), 0f);
+        return center + new Vector3(Random.Range(-8.0f, 8.0f), 6.0f, 25.0f);
     }
     GameObject GetRandomObject()
     {
