@@ -20,12 +20,12 @@ public class BasketScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.A))
         {
-            this.transform.Translate(Vector3.left * 4.0f * Time.deltaTime);
+            this.transform.Translate(Vector3.left * 6.0f * Time.deltaTime);
         }
 
         if(Input.GetKey(KeyCode.D))
         {
-            this.transform.Translate(Vector3.right * 4.0f *Time.deltaTime);
+            this.transform.Translate(Vector3.right * 6.0f *Time.deltaTime);
         }
     }
 }
