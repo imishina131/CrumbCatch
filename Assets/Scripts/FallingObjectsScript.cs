@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FallingObjectsScript : MonoBehaviour
 {
     private int targetY = -20;
     Vector3 target;
     bool moving = true;
-    public static int crumbsCount = 0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +18,11 @@ public class FallingObjectsScript : MonoBehaviour
     {
         target = transform.position;
         target.y = targetY;
+    }
+
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -46,8 +51,6 @@ public class FallingObjectsScript : MonoBehaviour
         }
         if(other.gameObject.tag == "Basket")
         {
-            crumbsCount++;
-            Debug.Log("Crumbs: " + crumbsCount);
             Destroy(gameObject);
         }
     }
