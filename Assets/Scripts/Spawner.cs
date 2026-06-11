@@ -12,7 +12,6 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnCrumbs", 0.0f, Random.Range(1.0f, 5.0f));
-        //SpawnCrumbs();
     }
 
     void Awake()
@@ -34,7 +33,18 @@ public class Spawner : MonoBehaviour
     }
     GameObject GetRandomObject()
     {
-        return crumbPrefabs[Random.Range(0,crumbPrefabs.Count)];
+        int randomNumber = Random.Range(1, 10);
+        GameObject chosenPrefab = null;
+
+        if(randomNumber <= 2)
+        {
+            chosenPrefab = crumbPrefabs[Random.Range(7, 11)];
+        }
+        else if(randomNumber > 2)
+        {
+            chosenPrefab = crumbPrefabs[Random.Range(0, 6)];
+        }
+        return chosenPrefab;
     }
 
     // Update is called once per frame
